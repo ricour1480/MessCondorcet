@@ -1,0 +1,16 @@
+/**************************************Feuille de style********************************/
+h1{
+    text-decoration: underline;
+}
+#carous img{
+    margin-left: 25%;
+}
+.footer{
+    text-align: center;
+}
+.connecter,.connecter:hover{
+    color: white;
+}
+#form-connexion{
+   text-align:center;
+}
