@@ -1,10 +1,11 @@
 <?php
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 require '../dbConnect.php';
 require '../classes/Connexion.class.php';
 require '../classes/Utilisateurs.class.php';
 require '../classes/UtilisateursBD.class.php';
-
+require '../classes/Administrateur.class.php';
+require '../classes/AdministrateurBD.class.php';
 $cnx= Connexion::getInstance($dsn2, $user2, $pass2);
 extract($_POST,EXTR_OVERWRITE);
 if(!empty($login) && !empty($password)&& !empty($role)){
@@ -19,12 +20,18 @@ if(!empty($login) && !empty($password)&& !empty($role)){
             try{
             $verifUs= new UtilisateursBD($cnx);
             $result=$verifUs->verifUser($login, $mdp);
-            print json_encode($result);
+            print json_encode("ok user");
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
             }
         }else{
-            $query="select count(*) from admin where login=:log and mdp=:pwd";
+            try{
+                $verifAdmin= new AdministrateurBD($cnx);
+                $resultAd= $verifAdmin->verifAdmin($login, $mdp);
+                print json_encode("ok user");
+            }catch(PDOException $e){
+                print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
+            }
         }
     }else{
         print json_encode("Vous devez avoir une adresse Condorcet afin d'acceder à ce service");
