@@ -40,7 +40,7 @@ class CategorieBD extends Categorie {
     }
     public function getAllCategorie() {
          try{
-        $query="SELECT libelle_categorie FROM categorie";
+        $query="SELECT * FROM categorie";
         $resultset=$this->_db->prepare($query);
         $resultset->execute();
         }catch(PDOException $e){

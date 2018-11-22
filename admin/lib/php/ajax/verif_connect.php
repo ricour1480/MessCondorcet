@@ -6,7 +6,7 @@ require '../classes/Utilisateurs.class.php';
 require '../classes/UtilisateursBD.class.php';
 require '../classes/Administrateur.class.php';
 require '../classes/AdministrateurBD.class.php';
-$cnx= Connexion::getInstance($dsn2, $user2, $pass2);
+//$cnx= Connexion::getInstance($dsn2, $user2, $pass2);
 extract($_POST,EXTR_OVERWRITE);
 if(!empty($login) && !empty($password)&& !empty($role)){
     $cleSecrete=hash("sha256","ZxN5KjRzSEOcWSxLJSWbLyjKGTHH0VKscbeilnR9YAqeO9zKhguOxc2HhW4GZ00lZje8ecHJAoM1Nmlpx7k2riQJl55VFY53CLfTdAhWphDkpsZbN46q1oWN");
