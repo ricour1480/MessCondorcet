@@ -10,24 +10,6 @@ $(document).ready(function(){
             $("#erreurcredit").html('');
         }
     });
-    if($('#adduser').click(function(){
-        var nom=$('#nom').val();
-        var prenom=$('#prenom').val();
-        var log=$('#log').val();
-        var passuser=$('#passuser').val();
-        var credit=$('#credit').val();
-        $.ajax({
-            method : "POST",
-            url:"lib/php/ajax/AjaxAjoutUtilisateur.php",
-            dataType:"json",
-            data:{nom,prenom,log,passuser,credit}
-        })
-        .done(function(msg){
-            alert(msg);
-        })
-        .fail(function(msg){
-            alert('Fail :'+msg);
-        });
-    }));
+    
 });
 
