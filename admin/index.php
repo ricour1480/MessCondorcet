@@ -6,7 +6,7 @@ session_start();
 <html>
     <head>
         <link rel ="stylesheet" type="text/css" href="./lib/css/bootstrap-4.0.0/dist/css/bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="./lib/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="./lib/css/styleAdmin.css"/>
         <link rel="stylesheet" href="./lib/css/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="./lib/css/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
@@ -23,7 +23,7 @@ session_start();
         <!-- AdminLTE App -->
         <script src="./lib/css/AdminLTE/dist/js/adminlte.min.js"></script>
         <!--Script coté utilisateur-->
-        <script src="../lib/js/scriptUser.js"></script>
+        <script src="./lib/js/scriptAdmin.js"></script>
         <meta charset="UTF-8">
         <title>Mess Condorcet</title>
     </head>

@@ -24,10 +24,9 @@
             <i class="fa fa-home"></i> <span>Accueil</span>
           </a>
         </li>
-        <?php if(isset($_SESSION['admin'])){?>
         <li>
           <a href="./index.php?page=ajoutUser">
-            <i class="fa fa-file"></i> <span>Ajouter un utilisateur</span>
+            <i class="fa fa-user"></i> <span>Ajouter un utilisateur</span>
           </a>
         </li>
         <li>
@@ -37,10 +36,10 @@
         </li>
         <li>
           <a href="./index.php?page=ajoutProduit">
-            <i class="fa fa-cart-plus"></i><span>Ajouter des produits</span>
+            <i class="fa fa-star"></i><span>Ajouter des produits</span>
           </a>
         </li>
-        <?php } ?>
+       
       </ul>
     </section>
     <!-- /.sidebar -->
