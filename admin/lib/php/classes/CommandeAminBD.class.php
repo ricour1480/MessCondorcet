@@ -18,7 +18,7 @@ class CommandeAminBD {
     public function __construct($db) {
         $this->_db = $db;
     }    
-    public function Commander(int $idadmin,int $idprod, DateTime $date,int $reçu,int $qte){
+    public function Commander($idadmin,$idprod,$date,$reçu,$qte){
         try{
         $query="INSERT INTO commande_admin(id_admin,id_produit,date,recu,qte) VALUES(:id_admin,:id_prod,:date,:recu,:qte)";
         $resultset= $this->_db->prepare($query);
@@ -28,11 +28,10 @@ class CommandeAminBD {
         $resultset->bindParam(':recu',$reçu,PDO::PARAM_INT);
         $resultset->bindParam(':qte',$qte,PDO::PARAM_INT);
         $resultset->execute();
-         if($resultset->rowCount()>0){
-           print "Insertion éffectué";
-         }
+        $data=$resultset->fetchAll();
         }catch(PDOException $e){
             print $e->getMessage();
         }
+        return $data;
     }
 }

@@ -47,6 +47,7 @@ session_start();
                     <span class="icon-bar"></span>
                   </a>
                   <h3>Administration</h3>
+                  <input type="button" class=" btn btn-link deconnecter" id="btn_co_admin" value="Se déconnecter" />
                   <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                       <li>

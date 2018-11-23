@@ -5,7 +5,7 @@
 -- Dumped from database version 10.6
 -- Dumped by pg_dump version 10.6
 
--- Started on 2018-11-22 13:40:32
+-- Started on 2018-11-23 15:38:43
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -244,6 +244,7 @@ ALTER TABLE ONLY public.utilisateur ALTER COLUMN id_user SET DEFAULT nextval('pu
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO public.admin (id_admin, login, mdp) VALUES (1, 'Admin@condorcet.be', '1234');
 
 
 --
@@ -291,9 +292,10 @@ INSERT INTO public.categorie (id_categorie, libelle_categorie) VALUES (7, 'Boiss
 -- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (2, 'Toto', 'toto', 'toto@condorcet.be', '1cGxDG7d2J1Hc', 20);
-INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (3, 'test', 'test', 'test.test@condorcet.be', '1cyNvNOLyQaUQ', 25);
-INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (6, 'Nom', 'Prenom', 'nom@condorcet.be', '1cKXUzSkl24Yc', 25);
+INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (8, 'test2', 'test2', 'test2@condorcet.be', 'ad0234829205b9033196ba818f7a872b', 25);
+INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (9, 'test3', 'test3', 'test3@condorcet.be', '8ad8757baa8564dc136c1e07507f4a98', 30);
+INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (12, 'test', 'test', 'test@condorcet.be', '098f6bcd4621d373cade4e832627b4f6', 25);
+INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) VALUES (13, 'test', 'test', 'test.test@condorcet.be', '098f6bcd4621d373cade4e832627b4f6', 23);
 
 
 --
@@ -302,7 +304,7 @@ INSERT INTO public.utilisateur (id_user, nom, prenom, login, password, credit) V
 -- Name: admin_id_admin_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.admin_id_admin_seq', 1, false);
+SELECT pg_catalog.setval('public.admin_id_admin_seq', 1, true);
 
 
 --
@@ -329,7 +331,7 @@ SELECT pg_catalog.setval('public.produit_id_produit_seq', 1, false);
 -- Name: utilisateur_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.utilisateur_id_user_seq', 6, true);
+SELECT pg_catalog.setval('public.utilisateur_id_user_seq', 13, true);
 
 
 --
@@ -471,7 +473,7 @@ ALTER TABLE ONLY public.produit
     ADD CONSTRAINT fk_produit_categorie FOREIGN KEY (id_categorie) REFERENCES public.categorie(id_categorie);
 
 
--- Completed on 2018-11-22 13:40:34
+-- Completed on 2018-11-23 15:38:43
 
 --
 -- PostgreSQL database dump complete

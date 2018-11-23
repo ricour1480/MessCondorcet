@@ -1,23 +1,16 @@
-<?php
-extract($_POST,EXTR_OVERWRITE);
-if(isset($soumettre)){
-    $us=new UtilisateursBD($cnx);
-    $result=$us->verifUser($login, $password);
-    var_dump($result);
-}
-?>
+
 <h1>Formulaire de connexion</h1>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">Pour vous connecter, veuillez introduire votre login et votre mot de passe Condorcet et selectionner votre status</li>
   </ol>
 </nav>
-<form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
+
 <div id="form-connexion">
     <div class="form-group row">
         <label for="login" class="col-sm-2 col-form-label"><b>Login :</b></label>
         <div class="col-sm-5">
-            <input type="text"  name="login" id="login"/> *
+            <input type="text"  name="login" id="login" pattern="[A-Za-z0-9._%+-]+@condorcet+\.be$"/> *
         </div>
     </div>
     <div class="form-group row">
@@ -41,5 +34,4 @@ if(isset($soumettre)){
         </div>
     </div>
 </div>
-</form>
 

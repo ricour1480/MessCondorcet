@@ -24,18 +24,10 @@ class CategorieBD extends Categorie {
         $resultset=$this->_db->prepare($query);
         $resultset->bindParam(':id_cat',$id_cat,PDO::PARAM_INT);
         $resultset->execute();
+        $_CatArray=$resultset->fetchAll();
         }catch(PDOException $e){
             print $e->getMessage();
         } 
-        while($data = $resultset->fetch()){            
-            try {
-                $_CatArray[] = new Categorie($data);
-
-            } catch(PDOException $e) {
-                
-                print $e->getMessage();
-            }            
-        }
         return $_CatArray;   
     }
     public function getAllCategorie() {
@@ -43,18 +35,11 @@ class CategorieBD extends Categorie {
         $query="SELECT * FROM categorie";
         $resultset=$this->_db->prepare($query);
         $resultset->execute();
+        $data=$resultset->fetchAll();
         }catch(PDOException $e){
             print $e->getMessage();
         } 
-        while($data = $resultset->fetch()){            
-            try {
-                $_CategorieArray[] = new Categorie($data);
 
-            } catch(PDOException $e) {
-                
-                print $e->getMessage();
-            }            
-        }
-        return $_CategorieArray;  
+        return $data;
     }
 }

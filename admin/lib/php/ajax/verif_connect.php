@@ -6,12 +6,11 @@ require '../classes/Utilisateurs.class.php';
 require '../classes/UtilisateursBD.class.php';
 require '../classes/Administrateur.class.php';
 require '../classes/AdministrateurBD.class.php';
-//$cnx= Connexion::getInstance($dsn2, $user2, $pass2);
+$cnx= Connexion::getInstance($dsn2, $user2, $pass2);
 extract($_POST,EXTR_OVERWRITE);
 if(!empty($login) && !empty($password)&& !empty($role)){
-    $cleSecrete=hash("sha256","ZxN5KjRzSEOcWSxLJSWbLyjKGTHH0VKscbeilnR9YAqeO9zKhguOxc2HhW4GZ00lZje8ecHJAoM1Nmlpx7k2riQJl55VFY53CLfTdAhWphDkpsZbN46q1oWN");
     $login=trim(strtolower($login));
-    $mdp= crypt(trim($password), $cleSecrete);
+    $mdp=md5(trim($password));
     $role=trim(strtolower($role));
     //echo $mdp; //password claire toto
     if(preg_match("/@.*condorcet\.be$/",$login)) //Verifie s'il s'agit d'une adresse condorcet
@@ -20,15 +19,27 @@ if(!empty($login) && !empty($password)&& !empty($role)){
             try{
             $verifUs= new UtilisateursBD($cnx);
             $result=$verifUs->verifUser($login, $mdp);
-            print json_encode("ok user");
+            if($result[0][0] == 1){
+                $_SESSION['user']=hash("sha256",$login.$mdp);
+                print json_encode('ok user');
+            }
+            if($result[0][0] == 0){
+                print json_encode('Mauvais login ou mauvais mot de passe');
+            }
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
             }
         }else{
             try{
                 $verifAdmin= new AdministrateurBD($cnx);
-                $resultAd= $verifAdmin->verifAdmin($login, $mdp);
-                print json_encode("ok user");
+                $resultAd= $verifAdmin->verifAdmin($login, $password);
+                if($resultAd[0][0] == 1){
+                    $_SESSION['admin']=hash("sha256",$login.$password);
+                    print json_encode('ok admin');
+                }
+                if($resultAd[0][0] == 0){
+                    print json_encode('Mauvais login ou mauvais mot de passe');
+                }
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
             }

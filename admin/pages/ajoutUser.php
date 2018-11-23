@@ -1,5 +1,5 @@
 <?php
-extract($_POST,EXTR_OVERWRITE);
+/*extract($_POST,EXTR_OVERWRITE);
 if(isset($adduser)){
     $erreur="";
     $nom=trim($nom);
@@ -14,7 +14,7 @@ if(isset($adduser)){
         $insert=$utilisateur->AjoutUtilisateur($nom, $prenom, $log, $mdp, $credit);
     }
     
-}
+}*/
 ?>
 <section class="content-header">
     <h1>Ajouter un nouvelle utilisateur :
@@ -23,8 +23,6 @@ if(isset($adduser)){
 </section>
 <section class="content">
     <div class="formulaire">
-        
-        <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
             <div class="form-group row">
                 <label for="nom" class="col-sm-3">Nom :</label>
                 <div class="col-sm-6">
@@ -61,7 +59,6 @@ if(isset($adduser)){
                     <button class="btn btn-light pull-right" name="adduser" id="adduser">Ajouter</button>
                 </div>
             </div>
-        </form>
     </div>
 </section>
 

@@ -18,7 +18,7 @@ class CommandeUserBD extends CommandeUser {
     public function __construct($db) {
         $this->_db = $db;
     }    
-    public function Commander(int $id_user,int $id_produit,DateTime $date,string $statut,int $qte){
+    public function Commander($id_user,$id_produit,$date,$statut,$qte){
         try{
         $commande="INSERT INTO commande(id_user,id_produit,date,statut,qte) VALUES (:id_user,:id_produit,:date,:status,:qte)";
         $resultset=$this->_db->prepare($commande);
@@ -28,14 +28,12 @@ class CommandeUserBD extends CommandeUser {
         $resultset->bindParam(':status',$statut,PDO::PARAM_STR);
         $resultset->bindParam(':qte',$qte,PDO::PARAM_INT);
         $resultset->execute();
-        if($resultset->rowCount()>0){
-                print "Insertion éffectué";
-            }
+        $data=$resultset->fetchAll();
         } catch (PDOException $e){
             print $e->getMessage();
         }
     }
-    public function AffichageCommande(int $id_user){
+    public function AffichageCommande($id_user){
         try{
         $query="SELECT id_produit,qte FROM commande WHERE id_user=:id_user";
         $resultset=$this->_db->prepare($query);

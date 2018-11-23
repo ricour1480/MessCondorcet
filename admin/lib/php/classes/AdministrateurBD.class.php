@@ -25,19 +25,10 @@ class AdministrateurBD extends Administrateur {
             $resultset->bindParam(':login',$login,PDO::PARAM_STR);
             $resultset->bindParam(':pwd',$mdp,PDO::PARAM_STR);
             $resultset->execute();
+            $data=$resultset->fetchAll();
         } catch(PDOException $e) {
             print $e->getMessage();
         }
-        
-        while($data = $resultset->fetch()){            
-            try {
-                $_Admin = new Administrateur($data);
-
-            } catch(PDOException $e) {
-                
-                print $e->getMessage();
-            }            
-        }
-        return $_Admin;    
+        return $data;    
     }
 }

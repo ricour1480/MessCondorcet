@@ -46,9 +46,7 @@ session_start();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
-                 <button type="button" class="btn btn-link connecter">
-                      Se connecter
-                    </button> 
+                 <input type="button" class="btn btn-link connecter" id="btn_co" value="Se connecter" />
                   <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                       <li>
