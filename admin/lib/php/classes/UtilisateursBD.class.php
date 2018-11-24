@@ -47,26 +47,18 @@ class UtilisateursBD extends Utilisateurs {
         $data=$resultset->fetch();
         return $data;
     }
-    public function getDonneesUser($login) {
+    public function getIdUser($login) {
         try {
-            $query="SELECT * FROM utilisateur WHERE login=:login";
+            $query="SELECT id_user FROM utilisateur WHERE login=:login";
             $resultset = $this->_db->prepare($query);
             $resultset->bindParam(':login',$login,PDO::PARAM_STR);
             $resultset->execute();
+            $data=$resultset->fetchAll();
         } catch(PDOException $e) {
             print $e->getMessage();
         }
-        
-        while($data = $resultset->fetch()){            
-            try {
-                $_userArray[] = new Utilisateurs($data);
-
-            } catch(PDOException $e) {
-                
-                print $e->getMessage();
-            }            
-        }
-        return $_userArray;        
+       
+        return $data;        
     }
     public function verifUser(string $login,string $mdp) {
         try {

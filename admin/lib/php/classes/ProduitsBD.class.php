@@ -21,27 +21,18 @@ class ProduitsBD extends Produits{
     
     public function getAllProduits() {
         try {
-            $query="SELECT * FROM produits";
+            $query="SELECT * FROM produit";
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
+            $_produitArray=$resultset->fetchAll();
         } catch(PDOException $e) {
             print $e->getMessage();
-        }
-        
-        while($data = $resultset->fetch()){            
-            try {
-                $_produitArray[] = new Produits($data);
-
-            } catch(PDOException $e) {
-                
-                print $e->getMessage();
-            }            
         }
         return $_produitArray;        
     }
     public function AddProduits($id_cat,$nom,$prix,$stock_min){
         try{
-            $insert="INSERT INTO produits(id_categorie,nom_produit,prix_produit,stock_min) VALUES(:id_cat,:nom_prod,:prix,:stock)";
+            $insert="INSERT INTO produit(id_categorie,nom_produit,prix_produit,stock_min) VALUES(:id_cat,:nom_prod,:prix,:stock)";
             $resultset=$this->_db->prepare($insert);
             $resultset->bindParam(':id_cat',$id_cat,PDO::PARAM_INT);
             $resultset->bindParam(':nom_prod',$nom,PDO::PARAM_STR);
@@ -56,7 +47,7 @@ class ProduitsBD extends Produits{
     }
     public function getProduit($id_prod){
         try {
-            $query="SELECT * FROM produits WHERE id_produit=:id_prod";
+            $query="SELECT * FROM produit WHERE id_produit=:id_prod";
             $resultset = $this->_db->prepare($query);
            $resultset->bindParam(':id_prod',$id_prod,PDO::PARAM_INT);
             $resultset->execute();

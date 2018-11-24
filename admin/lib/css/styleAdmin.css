@@ -15,4 +15,16 @@ h1{
 .deconnecter{
     color:white;
 }
-
+.rouge{
+    color:red;
+}
+label{
+    font-weight: bold;
+}
+.panierAdmin{
+    margin-right: 10%;
+    border-left:solid black 1px ; 
+}
+.titre_panier{
+    border-bottom: dotted #003399 1px;
+}

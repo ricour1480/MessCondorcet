@@ -1,4 +1,5 @@
 <?php 
+//faire un if quand on est connecté avec un admin
 require './lib/php/adm_liste_include.php';
 $cnx = Connexion::getInstance($dsn, $user, $pass);
 session_start();
@@ -81,11 +82,11 @@ session_start();
                         else {
                             print "Oups...";
                         }
-                    ?>
-                <div class="footer">
-                    <b>Editeur responsable : Ricour Christopher - christopher.ricour@condorcet.be</b>
-                </div>    
+                    ?>  
                 </div>
+             <div class="footer">
+                    <b>Editeur responsable : Ricour Christopher - christopher.ricour@condorcet.be</b>
+                </div>  
         </section>
     </body>
 </html>

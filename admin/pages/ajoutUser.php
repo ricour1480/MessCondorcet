@@ -26,31 +26,31 @@ if(isset($adduser)){
             <div class="form-group row">
                 <label for="nom" class="col-sm-3">Nom :</label>
                 <div class="col-sm-6">
-                    <input type="text" name="nom" id="nom"/> *
+                    <input type="text" name="nom" required id="nom"/> *
                 </div>
             </div>
             <div class="form-group row">
                 <label for="prenom" class="col-sm-3">Prenom :</label>
                 <div class="col-sm-6">
-                    <input type="text" name="prenom" id="prenom"/> *
+                    <input type="text" name="prenom" required id="prenom"/> *
                 </div>
             </div>
             <div class="form-group row">
                 <label for="log" class="col-sm-3">Login :</label>
                 <div class="col-sm-6">
-                    <input type="text" name="log" id="log" pattern="[a-z0-9._%+-]+@condorcet+\.be$"/> *
+                    <input type="text" name="log" required id="log" pattern="[a-z0-9._%+-]+@condorcet+\.be$"/> *
                 </div>
             </div>
             <div class="form-group row">
                 <label for="mdp" class="col-sm-3">Mot de passe :</label>
                 <div class="col-sm-6">
-                    <input type="password" name="passuser" id="passuser"/> *
+                    <input type="password" name="passuser"  required id="passuser"/> *
                 </div>
             </div>
             <div class="form-group row">
                 <label for="credit" class="col-sm-3">Somme versée :</label>
                 <div class="col-sm-6">
-                    <input type="number" name="credit" id="credit"/> *
+                    <input type="number" name="credit" required id="credit"/> *
                 </div>
                 <div class="col-sm-2" id="erreurcredit"></div>
             </div>

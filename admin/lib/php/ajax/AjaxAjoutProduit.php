@@ -12,12 +12,12 @@ try{
         $nom=trim($nom);
         $prix=$prix;
         $stock=$stock;
-        if(intval($prix) <= 0 || intval($stock) <= 0){
+        if(floatval($prix) <= 0.0 || intval($stock) <= 0){
             print json_encode('Valeurs nulles incorrectes');
         }else{
             $produit= new ProduitsBD($cnx3);
             $produit->AddProduits($id_cat, $nom, $prix, $stock);
-            print json_encode($produit[0][0]);
+            print json_encode("Insertion du produit");
         }
     }
 }catch(PDOException $e){

@@ -80,11 +80,11 @@ session_start();
                         else {
                             print "Oups...";
                         }
-                    ?>
-                <div class="footer">
-                    <b>Editeur responsable : Ricour Christopher - christopher.ricour@condorcet.be</b>
-                </div>    
+                    ?>  
                 </div>
         </section>
+        <div class="footer">
+                    <b>Editeur responsable : Ricour Christopher - christopher.ricour@condorcet.be</b>
+        </div>  
     </body>
 </html>

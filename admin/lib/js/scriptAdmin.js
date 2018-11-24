@@ -37,15 +37,16 @@ $(document).ready(function(){
         var stock = $('#stock_prod').val();
         $.ajax({
             method : "POST",
-            url:"lib/php/ajax/AjaxAjoutUtilisateur.php",
+            url:"lib/php/ajax/AjaxAjoutProduit.php",
             dataType:"json",
-            data:{id_cat,nom,prix,stock},
-            success:function(msg){
-                alert('Insertion du produit éffectuée :'+msg);
-            },
-            error:function(msg){
-                alert(msg.statusText);
-            }
+            data:{id_cat,nom,prix,stock}
+        })
+        .done(function(msg){
+            alert("msg");
+    
+        })
+        .fail(function(msg){
+            alert(msg);
         });
         
     });

@@ -18,7 +18,7 @@
       <br />
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header" style="color:white;">MAIN NAVIGATION</li>
+        <li class="header" style="color:white;">Navigation des pages</li>
         <li>
           <a href="./index.php?page=accueil">
             <i class="fa fa-home"></i> <span>Accueil</span>

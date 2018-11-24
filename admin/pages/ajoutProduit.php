@@ -12,7 +12,6 @@
 </section>
 <section class="content">
     <div class="formulaire">
-        <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
         <div class="form-group row">
             <label for="categorie" class="col-sm-4">Catégorie</label>
             <div class="col-sm-4">
@@ -50,7 +49,6 @@
                 <button class="btn btn-light pull-right" name="ajoutProd" id="ajoutProd">Ajouter le produit</button>
             </div>        
         </div>     
-        </form>
     </div>
 </section>
 

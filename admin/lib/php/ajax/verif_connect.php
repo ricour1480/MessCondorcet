@@ -20,7 +20,11 @@ if(!empty($login) && !empty($password)&& !empty($role)){
             $verifUs= new UtilisateursBD($cnx);
             $result=$verifUs->verifUser($login, $mdp);
             if($result[0][0] == 1){
-                $_SESSION['user']=hash("sha256",$login.$mdp);
+                //$_SESSION['user']=hash("sha256",$login.$mdp);
+                $userId= new UtilisateursBD($cnx);
+                $resultIdu= $userId->getIdUser($login);
+                $iduser=intval($resultIdu[0]['id_user']);
+                //$_SESSION['userid']=$iduser;
                 print json_encode('ok user');
             }
             if($result[0][0] == 0){
@@ -34,7 +38,7 @@ if(!empty($login) && !empty($password)&& !empty($role)){
                 $verifAdmin= new AdministrateurBD($cnx);
                 $resultAd= $verifAdmin->verifAdmin($login, $password);
                 if($resultAd[0][0] == 1){
-                    $_SESSION['admin']=hash("sha256",$login.$password);
+                   // $_SESSION['admin']=hash("sha256",$login.$password);
                     print json_encode('ok admin');
                 }
                 if($resultAd[0][0] == 0){

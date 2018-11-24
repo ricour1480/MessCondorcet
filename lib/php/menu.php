@@ -18,24 +18,22 @@
       <br />
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header" style="color:white;">MAIN NAVIGATION</li>
+        <li class="header" style="color:white;">Navigation du menu</li>
         <li>
           <a href="./index.php?page=accueil">
             <i class="fa fa-home"></i> <span>Accueil</span>
           </a>
         </li>
-        <?php if(isset($_SESSION['user'])){?>
         <li>
           <a href="./index.php?page=donnees">
             <i class="fa fa-file"></i> <span>Consultation des données</span>
           </a>
         </li>
         <li>
-          <a href="./index.php?page=commande">
+          <a href="./index.php?page=commandeUser">
             <i class="fa fa-cart-plus"></i> <span>Commander</span>
           </a>
         </li>
-        <?php } ?>
       </ul>
     </section>
     <!-- /.sidebar -->
