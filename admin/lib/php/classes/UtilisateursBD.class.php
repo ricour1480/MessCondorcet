@@ -20,7 +20,7 @@ class UtilisateursBD extends Utilisateurs {
     }
     public function AjoutUtilisateur($nom,$prenom,$login,$mdp,$credit){
         try{
-            $insert="INSERT INTO utilisateur(nom,prenom,login,password,credit)VALUES(:nom,:prenom,:login,:mdp,:credit)";
+            $insert="INSERT INTO utilisateur(nom,prenom,login,password,credit,status)VALUES(:nom,:prenom,:login,:mdp,:credit,1)";
             $resutlset= $this->_db->prepare($insert);
             $resutlset->bindParam(':nom',$nom,PDO::PARAM_STR);
             $resutlset->bindParam(':prenom',$prenom,PDO::PARAM_STR);
@@ -62,16 +62,21 @@ class UtilisateursBD extends Utilisateurs {
     }
     public function verifUser(string $login,string $mdp) {
         try {
-            $query="SELECT count(*) FROM utilisateur WHERE login=:login and password=:pwd";
+            $query="SELECT * FROM utilisateur WHERE login=:login and password=:pwd";
             $resultset = $this->_db->prepare($query);
             $resultset->bindParam(':login',$login,PDO::PARAM_STR);
             $resultset->bindParam(':pwd',$mdp,PDO::PARAM_STR);
             $resultset->execute();
             $data=$resultset->fetchAll();
+            if($data != null){
+                return $data;
+            }else{
+                return null;;
+            }
         } catch(PDOException $e) {
             print $e->getMessage();
         }
         
-        return $data;        
+             
     }
 }

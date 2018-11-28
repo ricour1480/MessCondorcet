@@ -20,15 +20,20 @@ class AdministrateurBD extends Administrateur {
     }
     public function verifAdmin(string $login,string $mdp){
          try {
-            $query="SELECT count(*) FROM admin WHERE login=:login and mdp=:pwd";
+            $query="SELECT * FROM admin WHERE login=:login and mdp=:pwd";
             $resultset = $this->_db->prepare($query);
             $resultset->bindParam(':login',$login,PDO::PARAM_STR);
             $resultset->bindParam(':pwd',$mdp,PDO::PARAM_STR);
             $resultset->execute();
             $data=$resultset->fetchAll();
+            if($data != null){
+                return $data;
+            }else{
+                return null;;
+            }
         } catch(PDOException $e) {
             print $e->getMessage();
         }
-        return $data;    
+           
     }
 }

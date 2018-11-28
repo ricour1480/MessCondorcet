@@ -1,4 +1,5 @@
 <?php
+session_start();
 //header('Content-Type: application/json');
 require '../dbConnect.php';
 require '../classes/Connexion.class.php';
@@ -19,16 +20,8 @@ if(!empty($login) && !empty($password)&& !empty($role)){
             try{
             $verifUs= new UtilisateursBD($cnx);
             $result=$verifUs->verifUser($login, $mdp);
-            if($result[0][0] == 1){
-                //$_SESSION['user']=hash("sha256",$login.$mdp);
-                $userId= new UtilisateursBD($cnx);
-                $resultIdu= $userId->getIdUser($login);
-                $iduser=intval($resultIdu[0]['id_user']);
-                //$_SESSION['userid']=$iduser;
-                print json_encode('ok user');
-            }
-            if($result[0][0] == 0){
-                print json_encode('Mauvais login ou mauvais mot de passe');
+            if($result != null){
+                $_SESSION['user']=hash("sha256",$login);
             }
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
@@ -36,20 +29,15 @@ if(!empty($login) && !empty($password)&& !empty($role)){
         }else{
             try{
                 $verifAdmin= new AdministrateurBD($cnx);
-                $resultAd= $verifAdmin->verifAdmin($login, $password);
-                if($resultAd[0][0] == 1){
-                   // $_SESSION['admin']=hash("sha256",$login.$password);
-                    print json_encode('ok admin');
-                }
-                if($resultAd[0][0] == 0){
-                    print json_encode('Mauvais login ou mauvais mot de passe');
+                $result= $verifAdmin->verifAdmin($login, $password);
+                if($result != null){
+                    $_SESSION['admin']=hash('sha256',$login);
                 }
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
             }
         }
-    }else{
-        print json_encode("Vous devez avoir une adresse Condorcet afin d'acceder à ce service");
+        print json_encode($result);
     }
 }
 ?>

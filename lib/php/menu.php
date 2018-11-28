@@ -24,6 +24,7 @@
             <i class="fa fa-home"></i> <span>Accueil</span>
           </a>
         </li>
+        <?php if(isset($_SESSION['user'])){ ?>
         <li>
           <a href="./index.php?page=donnees">
             <i class="fa fa-file"></i> <span>Consultation des données</span>
@@ -34,6 +35,7 @@
             <i class="fa fa-cart-plus"></i> <span>Commander</span>
           </a>
         </li>
+        <?php } ?>
       </ul>
     </section>
     <!-- /.sidebar -->
