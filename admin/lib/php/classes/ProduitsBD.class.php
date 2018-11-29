@@ -66,4 +66,16 @@ class ProduitsBD extends Produits{
         }
         return $_pArray;   
     }
+    public function getProduitByCat($id_cat){
+         try {
+            $query="SELECT * FROM produit WHERE id_categorie=:id_cat";
+            $resultset = $this->_db->prepare($query);
+           $resultset->bindParam(':id_cat',$id_cat,PDO::PARAM_INT);
+            $resultset->execute();
+        } catch(PDOException $e) {
+            print $e->getMessage();
+        }
+       $_pArray=$resultset->fetchAll();
+        return $_pArray;  
+    }
 }

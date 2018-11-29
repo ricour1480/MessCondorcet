@@ -21,7 +21,7 @@ if(!empty($login) && !empty($password)&& !empty($role)){
             $verifUs= new UtilisateursBD($cnx);
             $result=$verifUs->verifUser($login, $mdp);
             if($result != null){
-                $_SESSION['user']=hash("sha256",$login);
+                $_SESSION['user']=$login;
             }
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());
@@ -31,7 +31,7 @@ if(!empty($login) && !empty($password)&& !empty($role)){
                 $verifAdmin= new AdministrateurBD($cnx);
                 $result= $verifAdmin->verifAdmin($login, $password);
                 if($result != null){
-                    $_SESSION['admin']=hash('sha256',$login);
+                    $_SESSION['admin']=$login;
                 }
             }catch(PDOException $e){
                 print json_encode($e->getMessage()." ".$e->getLine()." ".$e->getTrace()." ".$e->getCode());

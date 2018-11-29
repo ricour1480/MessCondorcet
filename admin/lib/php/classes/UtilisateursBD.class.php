@@ -79,4 +79,20 @@ class UtilisateursBD extends Utilisateurs {
         
              
     }
+    public function getAllInfo(string  $login){
+         try {
+            $query="SELECT * FROM utilisateur WHERE login=:login";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindParam(':login',$login,PDO::PARAM_STR);
+            $resultset->execute();
+            $data=$resultset->fetchAll();
+            if($data != null){
+                return $data;
+            }else{
+                return null;;
+            }
+        } catch(PDOException $e) {
+            print $e->getMessage();
+        }
+    }
 }

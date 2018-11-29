@@ -1,8 +1,40 @@
 <?php
+require './lib/php/verif_connexion.php';
+$cate= new CategorieBD($cnx);
+$cat_array=$cate->getAllCategorie();
+$nbr_cat=count($cat_array);
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+?>
+<section class="content-header">
+    <h1>Commande</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Choississez ce que vous souhaitez commander. Nous vendons de tous : de la salade au petit dèj passant par les sandwiches, les snacks et les softs</li>
+        </ol>
+    </nav>
+</section>
+<section  class="content-wrapper" id="formulaire_commande">
+    <div class="form-group row">
+        <label for="categorie" class="col-sm-3">Type du produit :</label>
+        <div class="col-sm-4">
+            <select id="idcate" name="idcate" required>
+                <option value="">Veuillez selectionner une catégorie</option>
+                    <?php
+                    for($i=0;$i<$nbr_cat;$i++){
+                        ?>
+                    <option value="<?php print $cat_array[$i]['id_categorie']; ?>"><?php print $cat_array[$i]['libelle_categorie'];?></option>    
+                        <?php
+                    }
+                    ?>
+                </select> *
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="produit" class="col-sm-3">Produit disponible :</label>
+        <div class="col-sm-4">
+            <select id="prod" name="prod" required></select> *
+        </div>
+        <div class="col-sm-4" id="image_produit"></div>
+    </div>
+    <small class="pull-right col-sm-2"> * champ(s) obligatoire(s)</small>
+</section>

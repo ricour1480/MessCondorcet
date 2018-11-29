@@ -46,7 +46,12 @@ session_start();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
+                  <?php if(!isset($_SESSION['user'])){ ?>
                  <input type="button" class="btn btn-link connecter" id="btn_co" value="Se connecter" />
+                  <?php }
+                  else{ ?>
+                 <a href="./lib/php/deconnecter.php" class="deconnecter" title="Se deconnecter">Se déconnecter</a>
+                 <?php }?>
                   <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                       <li>

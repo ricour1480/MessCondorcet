@@ -8,7 +8,7 @@ h1{
 .footer{
     text-align: center;
 }
-.connecter,.connecter:hover{
+.connecter,.connecter:hover,.deconnecter,.deconnecter:hover{
     color: white;
 }
 #form-connexion{
