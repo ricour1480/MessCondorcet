@@ -31,6 +31,11 @@
           </a>
         </li>
         <li>
+          <a href="./index.php?page=produits">
+            <i class="fa fa-coffee"></i> <span>Nos produits</span>
+          </a>
+        </li>
+        <li>
           <a href="./index.php?page=commandeUser">
             <i class="fa fa-cart-plus"></i> <span>Commander</span>
           </a>

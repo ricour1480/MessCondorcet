@@ -51,18 +51,9 @@ class ProduitsBD extends Produits{
             $resultset = $this->_db->prepare($query);
            $resultset->bindParam(':id_prod',$id_prod,PDO::PARAM_INT);
             $resultset->execute();
+            $_pArray=$resultset->fetchAll();
         } catch(PDOException $e) {
             print $e->getMessage();
-        }
-        
-        while($data = $resultset->fetch()){            
-            try {
-                $_pArray[] = new Produits($data);
-
-            } catch(PDOException $e) {
-                
-                print $e->getMessage();
-            }            
         }
         return $_pArray;   
     }

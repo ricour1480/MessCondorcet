@@ -14,3 +14,23 @@ h1{
 #form-connexion{
    text-align:center;
 }
+#formulaire_commande{
+    width: 70%
+}
+#panierUser{
+    width:30%;
+    border-left:dotted 1px black;
+}
+#searchCat{
+    margin-left: 20%;
+}
+th{
+    background-color: lightgray;
+}
+.noproduct{
+    font-weight: bold;
+    text-align: center;
+}
+#table_prod{
+    border: solid 1px black;
+}
