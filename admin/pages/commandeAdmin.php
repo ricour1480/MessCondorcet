@@ -1,4 +1,5 @@
 <?php
+require './lib/php/verif_connexionAdmin.php';
 $prod=new ProduitsBD($cnx);
 $tabprod=$prod->getAllProduits();
 $nbrprod=count($tabprod);
@@ -14,7 +15,7 @@ $nbrprod=count($tabprod);
         <div class="form-group row">
             <label for="produitAdmin" class="col-sm-3">Produit :</label>
             <div class="col-sm-4">
-                <select id="idproduit" name="idproduit" required>
+                <select id="produitAdmin" name="produitAdmin" required>
                     <?php
                     for($i=0;$i<$nbrprod;$i++){
                         ?>
@@ -23,12 +24,6 @@ $nbrprod=count($tabprod);
                     }
                     ?>
                 </select> *
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="dateCommande" class="col-sm-3">Date :</label>
-            <div class="col-sm-4">
-                <input type="date" name="dateCom" id="dateCom" class="datepicker-dropdown"/> *
             </div>
         </div>
         <div class="form-group row">

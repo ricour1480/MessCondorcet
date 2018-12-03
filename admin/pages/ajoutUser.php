@@ -1,4 +1,5 @@
 <?php
+require './lib/php/verif_connexionAdmin.php';
 /*extract($_POST,EXTR_OVERWRITE);
 if(isset($adduser)){
     $erreur="";
@@ -21,6 +22,9 @@ if(isset($adduser)){
         <small>formulaire d'ajout du formulaire</small>
     </h1>
 </section>
+ <ul class="breadcrumb">
+        <li class="breadcrumb-item rouge"> les champs suivis de * sont <b>obligatoires</b></li>
+</ul>
 <section class="content">
     <div class="formulaire">
             <div class="form-group row">

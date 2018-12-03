@@ -1,4 +1,5 @@
 <?php
+require './lib/php/verif_connexionAdmin.php';
     $categorie=new CategorieBD($cnx);
     $allcat=$categorie->getAllCategorie();
     $nbrcat=count($allcat);
@@ -10,6 +11,9 @@
         <small>Formulaire d'ajout d'un produit</small>
     </h1>
 </section>
+ <ul class="breadcrumb">
+        <li class="breadcrumb-item rouge"> les champs suivis de * sont <b>obligatoires</b></li>
+</ul>
 <section class="content">
     <div class="formulaire">
         <div class="form-group row">

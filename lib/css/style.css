@@ -34,3 +34,10 @@ th{
 #table_prod{
     border: solid 1px black;
 }
+.panierUser{
+    margin-right: 10%;
+    border-left:solid black 1px ; 
+}
+.titre_panierUser{
+    border-bottom: dotted #003399 1px;
+}

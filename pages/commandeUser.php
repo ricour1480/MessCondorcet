@@ -49,6 +49,7 @@ $nbr_cat=count($cat_array);
             </div>
         </div>
     </section>
+    
     <section  id="panierUser" class="pull-right">
     <h4>Panier:</h4>
     <hr>  

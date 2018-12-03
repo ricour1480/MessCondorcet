@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var panierAdmin='';
     $('.carousel').carousel({
         interval: 1500
     });
@@ -49,6 +50,32 @@ $(document).ready(function(){
             alert(msg);
         });
         
+    });
+    $('#ajoutPan').click(function(){
+        var id_produit = $('#produitAdmin').val();
+        var qte = $('#qteCom').val();
+        if(qte > 0){
+            $.ajax({
+                method : "POST",
+                url:"lib/php/ajax/AjaxAjoutPanierAdmin.php",
+                dataType:"json",
+                data:{
+                    idproduit:id_produit
+                }
+            })
+            .done(function(result){
+                var idproduit=result[0].id_produit;
+                var nomproduit=result[0].nom_produit;
+                var prixproduit=result[0].prix_produit;
+                panierAdmin+="<li id='admin"+idproduit+"'><span class='nomproduitadmin"+idproduit+"'>"+nomproduit+" </span><span class='prixproduitadmin"+idproduit+"'>Prix: "+prixproduit+" €</span><span class='quantiteprodadmin"+idproduit+"'> Qte :"+qte+"</li>";
+                $(".liste_panier").html(panierAdmin);
+            })
+            .fail(function(result){
+                console.log(result);
+            });
+        }else{
+            alert('Quantité négative ou nulle');
+        }
     });
 });
 

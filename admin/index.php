@@ -1,5 +1,4 @@
 <?php 
-//faire un if quand on est connecté avec un admin
 require './lib/php/adm_liste_include.php';
 $cnx = Connexion::getInstance($dsn, $user, $pass);
 session_start();
@@ -48,7 +47,7 @@ session_start();
                     <span class="icon-bar"></span>
                   </a>
                   <h3>Administration</h3>
-                  <input type="button" class=" btn btn-link deconnecter" id="btn_co_admin" value="Se déconnecter" />
+                 <a href="./lib/php/deconnecterAdmin.php" class="deconnecter" title="Se deconnecter">Se déconnecter</a>
                   <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                       <li>
@@ -90,5 +89,4 @@ session_start();
         </section>
     </body>
 </html>
-
 
