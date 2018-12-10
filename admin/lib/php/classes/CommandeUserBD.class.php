@@ -53,4 +53,52 @@ class CommandeUserBD extends CommandeUser {
         }
         return $_CommandeArray;   
     }
+    public function UpdateQte($id_user,$id_prod,$qte){
+        try{
+        $commande="update commande set qte=:newqte where id_user=:id_user and id_produit=:id_prod";
+        $resultset=$this->_db->prepare($commande);
+        $resultset->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+        $resultset->bindParam(':id_prod',$id_prod,PDO::PARAM_INT);
+        $resultset->bindParam(':newqte',$qte,PDO::PARAM_INT);
+        $resultset->execute();
+        } catch (PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function UpdateStatut($id_user,$id_prod,$statut){
+        try{
+        $update="update commande set statut=:newstatut where id_user=:id_user and id_produit=:id_prod ";
+        $resultset=$this->_db->prepare($update);
+        $resultset->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+        $resultset->bindParam(':id_prod',$id_prod,PDO::PARAM_INT);
+        $resultset->bindParam(':newstatut',$statut,PDO::PARAM_INT);
+        $resultset->execute();
+        } catch (PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function DeleteCommande($id_user,$id_prod){
+        try{
+        $update="delete from commande where id_user=:id_user and id_produit=:id_prod ";
+        $resultset=$this->_db->prepare($update);
+        $resultset->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+        $resultset->bindParam(':id_prod',$id_prod,PDO::PARAM_INT);
+        $resultset->execute();
+        } catch (PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function AffichageCommandeQte($id_user,$id_prod){
+        try{
+        $select="select qte from commande where id_user=:id_user and id_produit=:id_prod ";
+        $resultset=$this->_db->prepare($select);
+        $resultset->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+        $resultset->bindParam(':id_prod',$id_prod,PDO::PARAM_INT);
+        $resultset->execute();
+        $data= $resultset->fetchAll();
+        } catch (PDOException $e){
+            print $e->getMessage();
+        }
+        return $data;
+    }
 }

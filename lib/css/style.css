@@ -41,3 +41,6 @@ th{
 .titre_panierUser{
     border-bottom: dotted #003399 1px;
 }
+.dustbin{
+    cursor: pointer;
+}

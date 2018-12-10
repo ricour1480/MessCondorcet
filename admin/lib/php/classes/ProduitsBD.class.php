@@ -69,4 +69,15 @@ class ProduitsBD extends Produits{
        $_pArray=$resultset->fetchAll();
         return $_pArray;  
     }
+    public function UpdateStockMin($idproduit,$newstock){
+        try{
+            $update = "update produit set stock_min=:new_stock where id_produit=:id_produit";
+            $resultset = $this->_db->prepare($update);
+           $resultset->bindParam(':new_stock',$newstock,PDO::PARAM_INT);
+           $resultset->bindParam(':id_produit',$idproduit,PDO::PARAM_INT);
+           $resultset->execute();
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+    }
 }

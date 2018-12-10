@@ -22,6 +22,10 @@ $info_array = $info_user->getAllInfo($_SESSION['user']);
         <div class="col-sm-5"><b><?php print $info_array[0]['login']; ?></b></div>
     </div>
     <div class="row">
+        <div class="col-sm-3">Solde :</div>
+        <div class="col-sm-5"><b><?php print $info_array[0]['credit']; ?> €</b></div>
+    </div>
+    <div class="row">
         <div class="col-sm-3">Mot de passe :</div>
         <div class="col-sm-5">
             <input type="password" id="zoneMDP" name="zoneMDP" placeholder="Nouveau mot de passe" />

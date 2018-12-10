@@ -13,6 +13,7 @@ $nbr_cat=count($cat_array);
         </ol>
     </nav>
 </section>
+
 <section class="content-wrapper">
     <section  id="formulaire_commande" class="pull-left">
         <div class="form-group row">
@@ -35,7 +36,6 @@ $nbr_cat=count($cat_array);
             <div class="col-sm-4">
                 <select id="prod" name="prod" required></select> *
             </div>
-            <div class="col-sm-4" id="image_produit"></div>
         </div>
         <div class="form-group row">
             <label for="qteUser" class="col-sm-3">Quantité :</label>
@@ -43,9 +43,15 @@ $nbr_cat=count($cat_array);
                 <input type="number" min="1" required name="quantiteUser" id="quantiteUser"/> *
             </div>
         </div>
+<!--        <div class="form-group row">
+            <label for="prix_total" class="col-sm-3">Prix d'un produit :</label>
+            <div class="col-sm-4">
+                <input type="number"  disabled name="prixTotalUser" id="prixTotalUser" />
+            </div>
+        </div>-->
         <div class="form-group row">
             <div class="col-sm-4">
-            <button class="btn btn-light pull-right" name="AddPanier" id="AddPanier">Ajouter au panier</button>
+            <button class="btn btn-light pull-right" name="AddPanier" id="AddPanier">Commander</button>
             </div>
         </div>
     </section>
@@ -54,6 +60,7 @@ $nbr_cat=count($cat_array);
     <h4>Panier:</h4>
     <hr>  
     <div class="container-fluid" id="panierU"></div>
+    <input type='button' class='btn btn-info' name='comUs' id='comUs' value='Confirmer votre commande'/>
     </section>
 </section>
 <small class="pull-right col-sm-2"> * champ(s) obligatoire(s)</small>

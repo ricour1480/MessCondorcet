@@ -89,9 +89,20 @@ class UtilisateursBD extends Utilisateurs {
             if($data != null){
                 return $data;
             }else{
-                return null;;
+                return null;
             }
         } catch(PDOException $e) {
+            print $e->getMessage();
+        }
+    }
+    public function updateCreditUser($login,$newcredit){
+        try{
+            $update="UPDATE utilisateur set credit=:newcredit where login=:login";
+            $resultset = $this->_db->prepare($update);
+            $resultset->bindParam(':login',$login,PDO::PARAM_STR);
+             $resultset->bindParam(':newcredit',$newcredit,PDO::PARAM_INT);
+            $resultset->execute();
+        }catch(PDOException $e){
             print $e->getMessage();
         }
     }
