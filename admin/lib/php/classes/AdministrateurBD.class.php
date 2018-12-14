@@ -36,4 +36,17 @@ class AdministrateurBD extends Administrateur {
         }
            
     }
+        public function getIdAdmin($login) {
+        try {
+            $query="SELECT id_admin FROM admin WHERE login=:login";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindParam(':login',$login,PDO::PARAM_STR);
+            $resultset->execute();
+            $data=$resultset->fetchAll();
+        } catch(PDOException $e) {
+            print $e->getMessage();
+        }
+       
+        return $data;        
+    }
 }

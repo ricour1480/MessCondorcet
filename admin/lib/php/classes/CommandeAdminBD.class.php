@@ -11,7 +11,7 @@
  *
  * @author ricou
  */
-class CommandeAminBD {
+class CommandeAdminBD {
      private $_db;
     private $_Array=array();
     

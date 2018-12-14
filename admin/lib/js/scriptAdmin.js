@@ -1,8 +1,12 @@
 $(document).ready(function(){
     var panierAdmin='';
+    var panAdmin=new Array();
+    var cpt=0;
+    panAdmin.push(new Array());
     $('.carousel').carousel({
         interval: 1500
     });
+    //onblur ??? adresse login
     $('#credit').keyup(function(){
         var credit=$('#credit').val();
         if(credit < 20 && credit != ''){
@@ -23,8 +27,8 @@ $(document).ready(function(){
             dataType:"json",
             data:{nom,prenom,log,passuser,credit}
         })
-        .done(function(){
-            alert('Insertion éffectuée');
+        .done(function(msg){
+            alert(msg);
         })
         .fail(function(msg){
             alert('Valeur de retour :'+msg+' erreur :'+console.log+' '+console.info);
@@ -60,13 +64,20 @@ $(document).ready(function(){
                 url:"lib/php/ajax/AjaxAjoutPanierAdmin.php",
                 dataType:"json",
                 data:{
-                    idproduit:id_produit
+                    idproduit:id_produit,
+                    quantite:qte
                 }
             })
             .done(function(result){
                 var idproduit=result[0].id_produit;
                 var nomproduit=result[0].nom_produit;
                 var prixproduit=result[0].prix_produit;
+                panAdmin.push(new Array());
+                panAdmin[cpt].push(id_produit);
+                panAdmin[cpt].push(qte);
+                panAdmin[cpt].push(prixproduit);
+                cpt++;
+                console.log(panAdmin);
                 panierAdmin+="<li id='admin"+idproduit+"'><span class='nomproduitadmin"+idproduit+"'>"+nomproduit+" </span><span class='prixproduitadmin"+idproduit+"'>Prix: "+prixproduit+" €</span><span class='quantiteprodadmin"+idproduit+"'> Qte :"+qte+"</li>";
                 $(".liste_panier").html(panierAdmin);
             })

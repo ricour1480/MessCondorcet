@@ -11,12 +11,16 @@ try{
     $prenom=trim($prenom);
     $log=trim(strtolower($log));
     $mdp= md5(trim($passuser));
-    if(intval($credit) < 20){
-        print json_encode('Credit Insuffissant : Min 20 €');
+    if(preg_match("/@.*condorcet\.be$/",$log)){
+        if(intval($credit) < 20){
+            print json_encode('Credit Insuffissant : Min 20 €');
+        }else{
+            $utilisateur= new UtilisateursBD($cnx2);
+            $utilisateur->AjoutUtilisateur($nom, $prenom, $log, $mdp, $credit);
+            print json_encode("Utilisateur ajouté");
+        } 
     }else{
-        $utilisateur= new UtilisateursBD($cnx2);
-        $utilisateur->AjoutUtilisateur($nom, $prenom, $log, $mdp, $credit);
-        print json_encode($utilisateur);
+        print json_encode("Format obligatoire :prenom.nom@condorcet.be");
     }
 }catch(PDOException $e){
     print $e->getMessage()." ".$e->getLine()." ".$e->getTrace();

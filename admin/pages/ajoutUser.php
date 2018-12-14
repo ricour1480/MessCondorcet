@@ -23,7 +23,7 @@ if(isset($adduser)){
     </h1>
 </section>
  <ul class="breadcrumb">
-        <li class="breadcrumb-item rouge"> les champs suivis de * sont <b>obligatoires</b></li>
+     <li class="breadcrumb-item rouge"> les champs suivis de * sont <b>obligatoires</b>.Format adresse e-mail : <b>prenom.nom@condorcet.be</b></li>
 </ul>
 <section class="content">
     <div class="formulaire">

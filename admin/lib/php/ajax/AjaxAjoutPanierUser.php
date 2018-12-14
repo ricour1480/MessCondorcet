@@ -23,7 +23,7 @@ try{
         $userArray= $user->getIdUser($_SESSION['user']);
         $userid = $userArray[0]['id_user'];
         $commande = new CommandeUserBD($cnx3);
-        $insertionCom = $commande->Commander($userid, $id_produit,date('d/m/Y'),0, $quantite);
+        $insertionCom = $commande->Commander($userid, $id_produit,date('d/m/Y', strtotime("+1 day")),0, $quantite);
         $ajoutpanier->UpdateStockMin($id_produit, $stock-1);
         print json_encode($array);
     }else if($stock == 0){
