@@ -89,4 +89,28 @@ $(document).ready(function(){
         }
     });
 });
+function EnableArea(iduser){
+    if($("#montant"+iduser).attr("disabled")){
+        $("#montant"+iduser).removeAttr("disabled");
+    }else{
+        $("#montant"+iduser).attr("disabled","disabled");
+    }
+}
+function valid(iduser){
+    var montant = $("#montant"+iduser).val();
+    $.ajax({
+            method:"POST",
+            url:"lib/php/ajax/AjaxUpdateCredit.php",
+            dataType:"json",
+            data:{
+                userid2:iduser,
+                montant:montant
+            }
+    })
+    .done(function(msg){
+        alert(msg);
+        window.location.href="./index.php?page=listeUsers"
+    })
+    .fail(function(msg){});
+}
 

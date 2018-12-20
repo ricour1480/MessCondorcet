@@ -28,3 +28,6 @@ label{
 .titre_panier{
     border-bottom: dotted #003399 1px;
 }
+#searchBoxUser{
+    text-align: center;
+}

@@ -106,4 +106,19 @@ class UtilisateursBD extends Utilisateurs {
             print $e->getMessage();
         }
     }
+    public function getAllUser(){
+        try{
+            $query="SELECT * FROM utilisateur";
+            $resultset = $this->_db->prepare($query);
+            $resultset->execute();
+            $data=$resultset->fetchAll();
+            if($data != null){
+                return $data;
+            }else{
+                return null;
+            }
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+    }
 }

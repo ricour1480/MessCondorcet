@@ -1,6 +1,6 @@
 <?php
 
-$dsn = 'pgsql:host=localhost;dbname=CondorcetMess;port=5433 ';
+$dsn = 'pgsql:host=localhost;dbname=CondorcetMess;port=5432';
 $user = 'CondorcetMess';
 $pass = '1234';
 

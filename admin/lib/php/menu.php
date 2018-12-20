@@ -29,6 +29,11 @@
             <i class="fa fa-user"></i> <span>Ajouter un utilisateur</span>
           </a>
         </li>
+         <li>
+          <a href="./index.php?page=listeUsers">
+            <i class="fa fa-list"></i> <span>Liste des utilisateurs</span>
+          </a>
+        </li>
         <li>
           <a href="./index.php?page=commandeAdmin">
             <i class="fa fa-cart-plus"></i> <span>Commander</span>
