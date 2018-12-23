@@ -108,8 +108,43 @@ class UtilisateursBD extends Utilisateurs {
     }
     public function getAllUser(){
         try{
-            $query="SELECT * FROM utilisateur";
+            $query="SELECT * FROM utilisateur ORDER BY nom asc";
             $resultset = $this->_db->prepare($query);
+            $resultset->execute();
+            $data=$resultset->fetchAll();
+            if($data != null){
+                return $data;
+            }else{
+                return null;
+            }
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function getLoginCredit($userid){
+        try{
+             $query="SELECT login,credit FROM utilisateur WHERE id_user=:iduser";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindParam(':iduser',$userid,PDO::PARAM_INT);
+            $resultset->execute();
+            $data=$resultset->fetchAll();
+            if($data != null){
+                return $data;
+            }else{
+                return null;
+            }
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function searchUser($mot){
+        $rechercher2='%'.$mot.'%';
+        $rechercher3='%'.$mot.'%';
+        try{
+            $query="SELECT * FROM utilisateur WHERE nom=:nom OR prenom=:prenom";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindParam(':nom',$rechercher2,PDO::PARAM_STR);
+            $resultset->bindParam(':prenom',$rechercher3,PDO::PARAM_STR);
             $resultset->execute();
             $data=$resultset->fetchAll();
             if($data != null){

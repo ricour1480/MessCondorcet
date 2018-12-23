@@ -82,10 +82,10 @@ session_start();
                             print "Oups...";
                         }
                     ?>  
-                </div>
-             <div class="footer">
+                    <div class="footer">
                     <b>Editeur responsable : Ricour Christopher - christopher.ricour@condorcet.be</b>
-                </div>  
+                    </div> 
+                </div> 
         </section>
     </body>
 </html>

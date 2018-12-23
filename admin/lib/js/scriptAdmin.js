@@ -88,6 +88,34 @@ $(document).ready(function(){
             alert('Quantité négative ou nulle');
         }
     });
+//    $('#searchUser').keyup(function(){
+//        var mot = $('#searchUser').val();
+//        if(mot !== ''){
+//            $.ajax({
+//                method:"POST",
+//                url:"lib/php/ajax/AjaxRechercheUser.php",
+//                data:{
+//                    mot:mot
+//                }
+//            })
+//            .done(function(resultat){
+//                console.log(resultat);
+//                if(resultat !==''){
+//                   var id_user = resultat[0].id_user;
+//                    var nom =resultat[0].nom;
+//                    var prenom = resultat[0].prenom;
+//                    var solde = resultat[0].credit;
+//                    search ="<tr><td>"+nom+"</td><td>"+prenom+"</td><td>"+solde+"</td>"+
+//                     "<td><input type='number' disabled id='montant"+id_user+"' min='0' />&nbsp;<input type='button' class='btn btn-info'  onclick='EnableArea("+id_user+");' id='EnableZone' value='Activer/Desactiver'/></td>"+
+//                     "<td><input type='button' id='validchangement'class='btn btn-info' onclick='valid("+id_user+");' value='Valider'/> </td></tr>";
+//                    $('#table_user').html(search);
+//                }
+//            })
+//            .fail(function(resultat){
+//                console.log(resultat);
+//            });
+//        }
+//    });
 });
 function EnableArea(iduser){
     if($("#montant"+iduser).attr("disabled")){

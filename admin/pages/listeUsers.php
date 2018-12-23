@@ -11,10 +11,10 @@ $nbrUser = count($liste_user);
     <ul class="breadcrumb">
         <li class="breadcrumb-item rouge">Depuis cette liste, vous pouvez ajouter le montant données par l'étudiant à son compte</li>
     </ul>
-    <div id="searchBoxUser" class="col-sm-5">Chercher un utilisateur :
+<!--    <div id="searchBoxUser" class="col-sm-5">Chercher un utilisateur :
         <input type="text" id="searchUser" placeholder="Entrer quelque chose"/>
-    </div>
-    <div id="liste_user">
+    </div>-->
+    <div id="liste_user" class="table-wrapper-scroll-y">
         <table class="table table-bordered table-striped" id="table_user">
             <tr>
                 <th scope="col">Nom</th>
