@@ -19,7 +19,9 @@ try{
     //$array=$ajoutpanier->getProduit($id_produit);
     $array=$ajoutpanier->getProduit($id_produit);
     $stock=$array[0]['stock_min'];
-    if($quantite <= $stock && $stock != 0){
+    $prix_prod=$array[0]['prix_produit'];
+    $prix_tot=$prix_prod*$quantite;
+    if($quantite <= $stock && $stock != 0 && $credit>=$prix_tot){
         $userArray= $user->getIdUser($_SESSION['user']);
         $userid = $userArray[0]['id_user'];
         $commande = new CommandeUserBD($cnx3);
@@ -28,6 +30,8 @@ try{
         print json_encode($array);
     }else if($stock == 0){
         print json_encode("Plus de stock pour ce produit");
+    }else if($credit<$prix_tot){
+        print json_encode("Veuillez renflouer votre compte");
     }else{
         print json_encode("La quantité souhaité est superieur au stock");
     }
