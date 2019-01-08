@@ -137,7 +137,7 @@ function valid(iduser){
     })
     .done(function(msg){
         alert(msg);
-        window.location.href="./index.php?page=listeUsers"
+        window.location.href="./index.php?page=listeUsers";
     })
     .fail(function(msg){});
 }

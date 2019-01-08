@@ -83,7 +83,7 @@ session_start();
                             include ($path);
                         }
                         else {
-                            print "Oups...";
+                            print "Cette page n'existe pas";
                         }
                     ?>  
                 </div>
