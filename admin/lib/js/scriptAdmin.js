@@ -47,7 +47,7 @@ $(document).ready(function(){
             data:{id_cat,nom,prix,stock}
         })
         .done(function(msg){
-            alert("msg");
+            alert(msg);
     
         })
         .fail(function(msg){
