@@ -18,7 +18,7 @@ $nbrUser = count($liste_user);
         <table class="table table-bordered table-striped" id="table_user">
             <tr>
                 <th scope="col">Nom</th>
-                <th scope="col">Prenom</th>
+                <th scope="col">Prénom</th>
                 <th scope="col">Solde ( en € )</th>
                 <th scope="col">Montant à ajouté</th>
                 <th scope="col">Validation du changement</th>

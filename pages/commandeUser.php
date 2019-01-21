@@ -9,7 +9,7 @@ $nbr_cat=count($cat_array);
     <h1>Commande</h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">Choississez ce que vous souhaitez commander. Nous vendons de tous : de la salade au petit dèj passant par les sandwiches, les snacks et les softs</li>
+          <li class="breadcrumb-item">Choississez ce que vous souhaitez commander. Nous vendons de tout : de la salade au petit dèj passant par les sandwiches, les snacks et les softs</li>
         </ol>
     </nav>
 </section>

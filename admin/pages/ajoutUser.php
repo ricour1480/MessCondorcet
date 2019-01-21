@@ -19,7 +19,7 @@ if(isset($adduser)){
 ?>
 <section class="content-header">
     <h1>Ajouter un nouvelle utilisateur :
-        <small>formulaire d'ajout du formulaire</small>
+        <small>formulaire d'ajout d'un utilisateur</small>
     </h1>
 </section>
  <ul class="breadcrumb">
@@ -34,7 +34,7 @@ if(isset($adduser)){
                 </div>
             </div>
             <div class="form-group row">
-                <label for="prenom" class="col-sm-3">Prenom :</label>
+                <label for="prenom" class="col-sm-3">Prénom :</label>
                 <div class="col-sm-6">
                     <input type="text" name="prenom" required id="prenom"/> *
                 </div>

@@ -2,7 +2,7 @@
 <h1>Formulaire de connexion</h1>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item">Pour vous connecter, veuillez introduire votre login et votre mot de passe Condorcet et selectionner votre status</li>
+    <li class="breadcrumb-item">Pour vous connecter, veuillez introduire votre login et votre mot de passe Condorcet et sélectionner votre status</li>
   </ol>
 </nav>
 
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="login" class="col-sm-2 col-form-label"><b>Role:</b></label>
+        <label for="login" class="col-sm-2 col-form-label"><b>Status:</b></label>
         <div class="col-sm-5">
             <select name="role" id="role">
                 <option value="user">étudiant</option>
