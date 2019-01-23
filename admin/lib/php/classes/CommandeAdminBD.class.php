@@ -34,4 +34,15 @@ class CommandeAdminBD {
         }
         return $data;
     }
+    public function UpdateRecu($idadmin,$idprod){
+        try{
+            $query="UPDATE commande_admin SET recu=1 WHERE id_admin=:admin AND id_produit=:prod";
+             $resultset= $this->_db->prepare($query);
+             $resultset->bindParam(':admin',$idadmin,PDO::PARAM_INT);
+             $resultset->bindParam(':prod',$idprod,PDO::PARAM_INT);
+             $resultset->execute();
+        } catch (PDOException $e){
+            print $e->getMessage();
+        }
+    }
 }

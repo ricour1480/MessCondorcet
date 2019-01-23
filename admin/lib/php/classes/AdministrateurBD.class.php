@@ -49,4 +49,5 @@ class AdministrateurBD extends Administrateur {
        
         return $data;        
     }
+    
 }

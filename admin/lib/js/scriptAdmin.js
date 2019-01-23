@@ -94,7 +94,22 @@ $(document).ready(function(){
         }
     });
     $('#commanderAdmin').click(function(){
-        alert('ok');
+        //alert('ok');
+        $.ajax({
+            method :"POST",
+            url:"lib/php/ajax/AjaxUpdateCommandeAdmin",
+            dataType:"json",
+            data:{
+                padmin:panAdmin
+            }
+        })
+        .done(function(result){
+            alert(result);
+     $(".liste_panier").html('');
+        })
+        .fail(function(result){
+            console.log(result);
+        });
     });
 //    $('#searchUser').keyup(function(){
 //        var mot = $('#searchUser').val();
