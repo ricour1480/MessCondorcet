@@ -74,12 +74,17 @@ $(document).ready(function(){
                 var prixproduit=result[0].prix_produit;
                 panAdmin.push(new Array());
                 panAdmin[cpt].push(id_produit);
+                panAdmin[cpt].push(nomproduit);
                 panAdmin[cpt].push(qte);
                 panAdmin[cpt].push(prixproduit);
                 cpt++;
                 console.log(panAdmin);
-                panierAdmin+="<li id='admin"+idproduit+"'><span class='nomproduitadmin"+idproduit+"'>"+nomproduit+" </span><span class='prixproduitadmin"+idproduit+"'>Prix: "+prixproduit+" €</span><span class='quantiteprodadmin"+idproduit+"'> Qte :"+qte+"</li>";
-                $(".liste_panier").html(panierAdmin);
+                panierAdmin='';
+                for(var i=0;i<panAdmin.length-1;i++){
+                     panierAdmin+="<li id='admin"+panAdmin[i][0]+"'><span class='nomproduitadmin"+panAdmin[i][0]+"'>"+panAdmin[i][1]+" </span><span class='prixproduitadmin"+panAdmin[i][0]+"'>Prix unitaire: "+panAdmin[i][3]+" €</span><span class='quantiteprodadmin"+panAdmin[i][0]+"'> Qte :"+panAdmin[i][2]+"</li>";
+                }
+                var charet= panierAdmin;
+                $(".liste_panier").html(charet);
             })
             .fail(function(result){
                 console.log(result);
@@ -87,6 +92,9 @@ $(document).ready(function(){
         }else{
             alert('Quantité négative ou nulle');
         }
+    });
+    $('#commanderAdmin').click(function(){
+        alert('ok');
     });
 //    $('#searchUser').keyup(function(){
 //        var mot = $('#searchUser').val();
